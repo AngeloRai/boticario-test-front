@@ -1,0 +1,92 @@
+.main-payment-div {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment-box {
+  width: 95%;
+}
+
+.payment-title {
+  height: 2rem;
+  color: #999;
+  font-weight: 700;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.creditcard-data-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: 3px;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 29, 0.22);
+  margin-bottom: 1.3rem;
+  margin-right: 0;
+}
+
+.price-box-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.payment-price-box {
+  display: flex;
+  align-items: center;
+  height: 8rem;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-bottom: 1.3rem;
+  width: 95%;
+}
+
+.cart-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 95%;
+  max-width: 25rem;
+  border-radius: 3px;
+  background-color: #ff6c00;
+  box-shadow: inset 0 -3px 0 0 #d45a00, 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.cart-button:hover {
+  background-color: #d45a00;
+}
+
+.cart-button-text {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.25rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+  .main-payment-div {
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 1rem;
+  }
+  .payment-box {
+    margin-top: 1rem;
+  }
+
+  .price-box-container {
+    margin-top: 3rem;
+  }
+}

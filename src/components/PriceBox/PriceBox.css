@@ -1,0 +1,28 @@
+.price-container {
+  height: 100%;
+  width: 100%;
+}
+
+.price-text {
+  margin: 0 0.7rem;
+  padding: 2px;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.cart-text-discount {
+  color: #ff7800;
+}
+
+.cart-text-total {
+  margin-top: 0.7rem;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+.price-text-inner-box {
+  display: flex;
+  justify-content: space-between;
+}
