@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react'
-import { NavLink } from 'react-router-dom'
 import { CartContext } from '../../context/cartContext'
 import PriceBox from '../PriceBox/PriceBox'
 import ProductCard from '../ProductCard/ProductCard'
@@ -28,13 +27,13 @@ function PaymentConfirmation() {
     if (!creditCard.nome) {
       setCreditCard(parsedStoredCreditCard)
     }
-  }, [cart.id, setCart])
+  }, [cart.id, setCart, creditCard.nome, setCreditCard])
 
   return (
     <div className="main-success-div">
       <div className="success-user-info-box">
         <div className="success-msg">
-          <img src={check} />
+          <img src={check} alt="succes check" />
           <span className="seccess-text">COMPRA EFETUADA COM SUCESSO</span>
         </div>
         {/* {ORANGE SUCCESS CHECK IMAGE} */}

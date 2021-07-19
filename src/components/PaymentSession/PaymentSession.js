@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import InputFeedback from '../inputFeedback'
 import creditCardValidation from '../creditCardValidation'
 import PriceBox from '../PriceBox/PriceBox'
@@ -10,7 +10,7 @@ import './PaymentSession.css'
 
 function PaymentSession() {
   const { cart, setCart } = useContext(CartContext)
-  const { creditCard, setCreditCard } = useContext(CreditCardContext)
+  const { setCreditCard } = useContext(CreditCardContext)
   const history = useHistory()
 
   useEffect(() => {
