@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
@@ -6,8 +6,7 @@ import { CartContextComponent } from '../../context/cartContext'
 import { CreditCardContextComponent } from '../../context/creditCardContext'
 import Cart from '../Cart/Cart'
 import NavbarComponent from '../Navbar/Navbar'
-import Payment from '../Payment/Payment'
-import CreditCardForm from '../CreditCardForm/CreditCardForm'
+import PaymentSession from '../PaymentSession/PaymentSession'
 
 function App() {
   return (
@@ -20,8 +19,7 @@ function App() {
             <div className="main-content-container">
               <Switch>
                 <Route exact path="/" component={Cart} />
-                <Route exact path="/pagamento" component={Payment} />
-                <Route exact path="/cartao" component={CreditCardForm} />
+                <Route exact path="/pagamento" component={PaymentSession} />
               </Switch>
             </div>
           </CreditCardContextComponent>

@@ -7,8 +7,8 @@ function CartContextComponent(props) {
   const [cart, setCart] = useState([])
 
   useEffect(() => {
-    const storedCart = localStorage.getItem('cart')
-    //We should parse the supported localstorage string format into json format before setting state
+    const storedCart = sessionStorage.getItem('cart')
+    //We should parse the supported sessionStorage string format into json format before setting state
     const parsedStoredCart = JSON.parse(storedCart || '""')
 
     // This will update Global state if there is an existing user with items added to cart stored in local sotrage,

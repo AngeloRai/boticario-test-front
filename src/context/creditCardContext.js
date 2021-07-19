@@ -7,13 +7,13 @@ function CreditCardContextComponent(props) {
   const [creditCard, setCreditCard] = useState([])
 
   useEffect(() => {
-    const storedcreditCard = localStorage.getItem('creditCard')
-    //We should parse the supported localstorage string format into json format before setting state
-    const parsedStoredcreditCard = JSON.parse(storedcreditCard || '""')
+    const storedCreditCard = sessionStorage.getItem('creditCard')
+    //We should parse the supported sessioStorage string format into json format before setting state
+    const parsedStoredCreditCard = JSON.parse(storedCreditCard || '""')
 
     // This will update Global state if there is an existing creditCard data stored in local sotrage,
-    if (parsedStoredcreditCard.length) {
-      setCreditCard([...parsedStoredcreditCard])
+    if (parsedStoredCreditCard.length) {
+      setCreditCard([...parsedStoredCreditCard])
     }
   }, [creditCard, setCreditCard])
 
