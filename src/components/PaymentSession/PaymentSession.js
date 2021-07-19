@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import InputFeedback from '../inputFeedback'
 import creditCardValidation from '../creditCardValidation'
 import PriceBox from '../PriceBox/PriceBox'
@@ -11,7 +11,7 @@ import './PaymentSession.css'
 function PaymentSession() {
   const { cart, setCart } = useContext(CartContext)
   const { creditCard, setCreditCard } = useContext(CreditCardContext)
-  console.log(cart)
+  const history = useHistory()
 
   useEffect(() => {
     const storedCart = sessionStorage.getItem('cart')
@@ -38,15 +38,19 @@ function PaymentSession() {
       validationSchema={creditCardValidation}
       onSubmit={(values, { setSubmitting }) => {
         console.log('submit is working')
-        console.log(values)
+        console.log(String(values.numero_cartao))
 
         setSubmitting(true)
-
-        setCreditCard(values)
-        sessionStorage.setItem('creditCard', JSON.stringify(values))
+        const partialNumbers = String(values.numero_cartao).slice(12, 17)
+        setCreditCard({ ...values, cvv: '', numero_cartao: partialNumbers })
+        sessionStorage.setItem(
+          'creditCard',
+          JSON.stringify({ ...values, cvv: '', numero_cartao: partialNumbers })
+        )
 
         setSubmitting(false)
-
+        history.push('/confirmacao')
+        console.log(partialNumbers)
         console.log(creditCard)
       }}
     >
@@ -120,7 +124,7 @@ function PaymentSession() {
                   <label htmlFor="validadeCartao">CVV</label>
                   <Field
                     placeholder="---"
-                    type="number"
+                    type="text"
                     className={`fields form-control ${
                       errors.cvv && touched.cvv ? 'is-invalid' : 'is-valid'
                     }`}
@@ -142,7 +146,6 @@ function PaymentSession() {
 
             <button type="submit" className="payment-button-text" disabled={isSubmitting}>
               <div className="payment-button">
-                <Link to="cartao" />
                 {isSubmitting ? (
                   <>
                     <span className="" role="status" aria-hidden="true"></span>

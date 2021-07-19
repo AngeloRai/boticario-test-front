@@ -6,11 +6,10 @@ import { CartContext } from '../../context/cartContext'
 import ProductCard from '../ProductCard/ProductCard'
 import PriceBox from '../PriceBox/PriceBox'
 import './Cart.css'
-import { CreditCardContext } from '../../context/creditCardContext'
+
 function Cart() {
-  const { creditCard, setCreditCard } = useContext(CreditCardContext)
   const { cart, setCart } = useContext(CartContext)
-  console.log(creditCard)
+
   useEffect(() => {
     const fetchProducts = async () => {
       const cartItems = await api.get('/v2/5b15c4923100004a006f3c07')

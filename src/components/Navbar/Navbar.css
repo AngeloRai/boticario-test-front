@@ -7,12 +7,14 @@
   z-index: 1000;
   background-color: #fff;
   box-shadow: 1px 1px 5px 0 rgba(0, 0, 29, 0.22);
+  padding: 0;
 }
 
 .nav-container {
   height: 2.6rem;
   width: 70%;
   border-radius: 3px;
+  max-width: 60rem;
 }
 
 .nav-menu {
@@ -22,7 +24,6 @@
   text-align: center;
   padding: 0;
   margin: 0.7rem 0 0 0;
-  max-width: 60rem;
 }
 
 .nav-links {
@@ -33,11 +34,12 @@
 
 .nav-item {
   line-height: 40px;
-  margin: 2px 1rem 0;
+
   font-size: 0.85rem;
   font-weight: 700;
   line-height: 16px;
   text-align: center;
+  margin: 0 1rem;
 }
 
 .nav-item .active {

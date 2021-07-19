@@ -7,6 +7,7 @@ import { CreditCardContextComponent } from '../../context/creditCardContext'
 import Cart from '../Cart/Cart'
 import NavbarComponent from '../Navbar/Navbar'
 import PaymentSession from '../PaymentSession/PaymentSession'
+import PaymentConfirmation from '../PaymentConfirmation/PaymentConfirmation'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Switch>
                 <Route exact path="/" component={Cart} />
                 <Route exact path="/pagamento" component={PaymentSession} />
+                <Route exact path="/confirmacao" component={PaymentConfirmation} />
               </Switch>
             </div>
           </CreditCardContextComponent>
