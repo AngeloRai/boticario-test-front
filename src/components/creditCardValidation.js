@@ -1,5 +1,5 @@
 import * as Yup from 'yup'
-
+// Validation model used to check if form input is appropriate
 const creditCardValidation = Yup.object().shape({
   numero_cartao: Yup.string()
     .length(16, 'Enter valid credit card')

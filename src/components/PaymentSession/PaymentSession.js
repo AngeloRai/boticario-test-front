@@ -17,17 +17,18 @@ function PaymentSession() {
     const storedCart = sessionStorage.getItem('cart')
     //We should parse the supported sessionStorage string format into json format before setting state
     const parsedStoredCart = JSON.parse(storedCart || '""')
-    console.log(parsedStoredCart)
-    // This will update Global state if there is an existing user with items added to cart stored in local sotrage,
 
+    // If there is no data available from cart context, this will update Global state if there is
+    //an existing user with items added to cart stored in local sotrage,
     if (!cart.id) {
       setCart(parsedStoredCart)
-      console.log('local storage used')
     }
   }, [cart.id, setCart])
-  console.log(cart)
 
   return (
+    //Formik validation form manages the field validations and sets state for credit card info
+    //internal Formik state set as "values" including data input from the form
+    // the "values" includes all state and is sent to other components
     <Formik
       initialValues={{
         numero_cartao: '',
@@ -37,21 +38,20 @@ function PaymentSession() {
       }}
       validationSchema={creditCardValidation}
       onSubmit={(values, { setSubmitting }) => {
-        console.log('submit is working')
-        console.log(String(values.numero_cartao))
-
         setSubmitting(true)
+        //treats the credit card number to send only last 4 digits to global context creditCard
         const partialNumbers = String(values.numero_cartao).slice(12, 17)
+        //sets creditCard context with "values" received from form and treated credit card number
         setCreditCard({ ...values, cvv: '', numero_cartao: partialNumbers })
+        //Although not recommendable, this sends treated credit card info to local session
         sessionStorage.setItem(
           'creditCard',
           JSON.stringify({ ...values, cvv: '', numero_cartao: partialNumbers })
         )
 
         setSubmitting(false)
+        //directs to Payment Confirmation component on submit
         history.push('/confirmacao')
-        console.log(partialNumbers)
-        console.log(creditCard)
       }}
     >
       {({ isSubmitting, errors, touched, setFieldValue }) => (
@@ -142,6 +142,7 @@ function PaymentSession() {
             </div>
           </div>
           <div className="price-box-container">
+            {/* {TOTAL PRICE SUMMARY} */}
             <div className="payment-price-box">{cart && <PriceBox cart={cart} />}</div>
 
             <button type="submit" className="payment-button-text" disabled={isSubmitting}>

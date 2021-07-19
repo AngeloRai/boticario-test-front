@@ -1,6 +1,6 @@
 import axios from 'axios'
-require('dotenv').config()
 
+// configures AXIOS with base url to avoid repetion
 const api = axios.create({
   baseURL: 'http://www.mocky.io/'
 })

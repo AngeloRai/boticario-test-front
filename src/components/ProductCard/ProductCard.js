@@ -11,7 +11,7 @@ function ProductCard(props) {
       </div>
       <div className="item-info-box">
         <div>{props.cart.product.name}</div>
-        {/* only renders if props price exists, in the confirmation component, price is not used */}
+        {/* only renders if "price" props  exists. In the confirmation component, price property is not used */}
         {props.price && (
           <div className="item-price">
             <strong>
